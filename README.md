@@ -3,5 +3,5 @@ This plugin adds new "features" to the game for the 1.15 update were bees were a
 The aim of this plugin is to allow players know more about the hives they have or they hold in hands. Also provides information about bees when right clicking them.
 
 ## Resources
-⚫ [Spigot resource](X)\
-⚫ [Issue tracker](https://github.com/AlonsoAliaga/BetterBees/issues)
+- [Spigot resource](X)\
+- [Issue tracker](https://github.com/AlonsoAliaga/BetterBees/issues)
