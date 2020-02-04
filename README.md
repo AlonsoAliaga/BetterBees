@@ -9,7 +9,7 @@ The aim of this plugin is to allow players know more about the hives they have o
 - [Issue tracker](https://github.com/AlonsoAliaga/BetterBees/issues)
 - [Donate](https://paypal.me/AlonsoAliaga)
 - [bStats](https://bstats.org/plugin/bukkit/BetterBees)
-- [DeveloperAPI](https://github.com/AlonsoAliaga/BetterBees/BetterBeesAPI)
+- [DeveloperAPI](https://github.com/AlonsoAliaga/BetterBees/wiki/BetterBeesAPI)
 
 ## Plugin statistics
 ![bStats.org](https://bstats.org/signatures/bukkit/BetterBees.svg)
