@@ -90,8 +90,6 @@ Options:
     # {BEENAME} - Replaced with the random name selected.
     Format-global: "&e{BEENAME}"
     #Format used if bee spawns in a claimed land (GriefPrevention or Lands).
-    # {BEENAME} - Replaced with the random name selected.
-    # {OWNER} - Replaced with the name of the owner of the claim IF available (Currently only with GriefPrevention).
     Format-owner:
       #Available placeholders:
       # {OWNER} - Replaced with the name of the owner of the claim IF available (Currently only with GriefPrevention).
