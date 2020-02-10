@@ -93,8 +93,12 @@ Options:
     # {BEENAME} - Replaced with the random name selected.
     # {OWNER} - Replaced with the name of the owner of the claim IF available (Currently only with GriefPrevention).
     Format-owner:
+      #Available placeholders:
+      # {OWNER} - Replaced with the name of the owner of the claim IF available (Currently only with GriefPrevention).
       GriefPrevention: "&e{BEENAME} &f- &eAbeja de &6{OWNER}"
-      Lands: "&e{BEENAME}"
+      #Available placeholders:
+      # {LANDNAME} - Replaced with the name of the land IF available (Currently only with Lands).
+      Lands: "&e{BEENAME} &f- &6{LANDNAME}"
     #List of names to choose from randomly. (You can also use color nodes here)
     Available-names:
       - "Jennie"
