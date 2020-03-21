@@ -21,7 +21,7 @@ Messages:
     Message: "&e&l蜂蜜量:&b&l{HONEYLEVEL}/{MAXHONEYLEVEL}&f&l-&e&l蜜蜂数:&b&l{BEES}&c❤"
   Bee-info:
     Action-bar: true
-    Message: "&e&l是否携带花粉:{NECTAR}&f&l-&e&l是否拥有蜂巢:{HIVE}&f&l-&e&l是否找到花:{FLOWER}&f&l-&e&l是否蛰过生物:{STING}"
+    Message: "&e&l是否携带花粉:{NECTAR}&f&l-&e&l是否拥有蜂巢:{HIVE}&f&l-&e&l是否找到花:{FLOWER}&f&l-&e&l是否拥有蛰针:{STING}"
   Keywords:
     Yes-word: "&a&l是"
     No-word: "&c&l否"
