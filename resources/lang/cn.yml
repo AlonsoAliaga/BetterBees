@@ -1,0 +1,79 @@
+####################
+#    BetterBees
+# By AlonsoAliaga
+# 翻译 by Fur_Xia
+####################
+
+Messages:
+  #当手上没东西时右键蜂箱或蜂巢发送：
+  Hive-info:
+    #如果设置为true并且正确安装了ProtolLib插件，消息将会被以action bar的形式显示.
+    #否则它将会被以信息的形式发送.
+    Action-bar: true
+    #可用的占位符:
+    # {HONEYLEVEL} - 蜂巢中蜂蜜量.
+    # {BEES} - 蜜蜂量.
+    # {MAXHONEYLEVEL} - 永远输出数字 5.
+    Message: "&e&l蜂蜜量:&b&l{HONEYLEVEL}/{MAXHONEYLEVEL}&f&l-&e&l蜜蜂数:&b&l{BEES}&c❤"
+  #当手上有东西时点击蜂箱或蜂巢时显示的消息 。
+  Hive-item-info:
+    Action-bar: true
+    Message: "&e&l蜂蜜量:&b&l{HONEYLEVEL}/{MAXHONEYLEVEL}&f&l-&e&l蜜蜂数:&b&l{BEES}&c❤"
+  Bee-info:
+    Action-bar: true
+    Message: "&e&l是否携带花粉:{NECTAR}&f&l-&e&l是否拥有蜂巢:{HIVE}&f&l-&e&l是否找到花:{FLOWER}&f&l-&e&l是否蛰过生物:{STING}"
+  Keywords:
+    Yes-word: "&a&l是"
+    No-word: "&c&l否"
+  Commands:
+    #你可以使用如 {VERSION} 和 {PLUGIN} 的占位符以显示这样的信息:
+    #No-permission: "&e正在运行 &6{PLUGIN} &ev&6{VERSION}&e."
+    No-permission: "&c您没有使用这条指令的权限."
+    Reloaded: "&a配置文件已经成功重载. （Message）翻译已经生效.翻译by Fur_Xia"
+    Help:
+      - " &6/betterbees &f- &e显示本条消息."
+      - " &6/betterbees reload&f- &e重载配置文件(不包含插件联动)"
+
+Options:
+  Permissions:
+    #获取信息的权限. 如果"none", 这里就会被忽略.
+    Hive-info-permission: "betterbees.hive"
+    Hive-item-info-permission: "betterbees.hive-item"
+    Bee-info-permission: "betterbees.bee"
+    #使用指令 /betterbees (包含 "/betterbees reload" 重载配置文件的Message功能) 的权限
+    Admin-permission: "betterbees.admin"
+  Hooks:
+    WorldGuard:
+      #如果为true，和WorldGuard联动. 为false就不会检查任何WorldGuard相关内容
+      #默认为false. 开启了也没啥功能和它有关.
+      Hook: true
+    GriefPrevention:
+      #如果为true， 和GriefPrevention联动.  为false就不会检查任何GriefPrevention相关内容d.
+      Hook: true
+      #译者没用过GriefPrevention所以不知道下面的功能是啥东西XD 我就不掺和了qwq~ 但是作者说GP升级到1.15+就不需要这两个了（？）
+      #Prevent bees to be damaged on claims, except for players with permissions in it. This blocks ALL types of damage.
+      #Including EXPLOSION, FIRE, ETC! Only players attack will be allowed. Recommended if using plugins with custom enchants or effects
+      #like CrazyEnchantments or similar where bow enchantment creates explosion inside other players' claims.
+      #This SHOULD not be needed after GriefPrevention updates his plugin to 1.15
+      Prevent-damage: true
+      #Prevent beehives and bee nests to be steal honey where player doesn't have permissions.
+      #This will not be needed after GriefPrevention updates his plugin to 1.15
+      Prevent-steal: true
+  Bees:
+    Path-to-hive:
+      #如果启用了，就会显示一个连接蜜蜂和蜂箱/巢的粒子效果连线
+      Enabled: true
+    Path-to-flower:
+      #如果启用了，就会显示一个连接蜜蜂和花的粒子效果连线
+      Enabled: true
+
+Updates:
+  #检查更新? 作者推荐启用! （但是如果你机器连接外网很慢，建议关闭）
+  Check-updates: true
+  #当玩家进入游戏时提示更新
+  Notify-updates: true
+  #当加入游戏时被提醒拥有新版本的权限
+  #如果设置为none，只有服务器op才会被通知
+  Permission: "betterbees.updatenotify"
+  #当发现版本更新时发送的消息
+  Message: "&6[BetterBees] &e发现了更新! 点击这里下载吧 &c{LINK}"
