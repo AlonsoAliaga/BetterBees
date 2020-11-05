@@ -4,20 +4,20 @@
 ####################
 
 Messages:
-  #Sent when right clicking a beehive or bee nest without items in hand.
+  #Envoyé lors d'un clic droit sur une ruche ou un nid d'abeilles (sans l'objet en main).
   Hive-info:
-    #If true and ProtocolLib is installed, message will be sent in action bar.
-    #Otherwise it will be sent as message.
+    #Si "true" et "ProtocolLib" installé, le message sera envoyé dans la barre d'actions.
+    #Sinon, il sera envoyé sous forme de message.
     Action-bar: true
-    #Available placeholders:
-    # {HONEYLEVEL} - Honey level in hive.
-    # {BEES} - Amount of bees.
-    # {MAXHONEYLEVEL} - Always replaced with 5.
-    Message: "&e&lMiel niveau: &b&l{HONEYLEVEL}/{MAXHONEYLEVEL} &f&l- &e&lAbaille: &b&l{BEES} &c❤"
-  #Sent when right clicking a beehive or bee nest item in hand.
+    #Placeholders Disponible:
+    # {HONEYLEVEL} - Niveau de miel dans la ruche.
+    # {BEES} - Quantité d'abeilles.
+    # {MAXHONEYLEVEL} - Toujours remplacé par 5.
+    Message: "&e&lNiveau de miel: &b&l{HONEYLEVEL}/{MAXHONEYLEVEL} &f&l- &e&lAbeille: &b&l{BEES} &c❤"
+  #Envoyé lors d'un clic droit sur une ruche ou un nid d'abeilles (avec l'objet en main).
   Hive-item-info:
     Action-bar: true
-    Message: "&e&lMiel niveau: &b&l{HONEYLEVEL}/{MAXHONEYLEVEL} &f&l- &e&lAbaille: &b&l{BEES} &c❤"
+    Message: "&e&lNiveau de miel: &b&l{HONEYLEVEL}/{MAXHONEYLEVEL} &f&l- &e&lAbeille: &b&l{BEES} &c❤"
   Bee-info:
     Action-bar: true
     Message: "&e&lA du nectar: {NECTAR} &f&l- &e&lA une ruche: {HIVE} &f&l- &e&lA des fleurs: {FLOWER} &f&l- &e&lA une piqûre: {STING}"
@@ -25,10 +25,11 @@ Messages:
     Yes-word: "&a&lOui"
     No-word: "&c&lNon"
   Commands:
-    #You can use placeholders like {VERSION} here {PLUGIN} to display something like:
+    #Vous pouvez utiliser des placeholders comme {VERSION} du {PLUGIN} pour afficher quelque chose comme:
     #No-permission: "&eRunning &6{PLUGIN} &ev&6{VERSION}&e."
-    #Only in "No-permission" message. When using this you support the developer :D
+    #Seulement dans "No-permission" message. Lorsque vous utilisez cela, vous soutenez le développeur :D
     No-permission: "&cVous n'êtes pas autorisé à exécuter cette commande."
+    #exemple: "&f[{PLUGIN}] &cVous n'êtes pas autorisé à exécuter cette commande."
     Reloaded: "&aLa configuration a été rechargée."
     Help:
       - " &6&l&nBetterBees&e par AlonsoAliaga &7- &ev&6{VERSION}"
@@ -37,82 +38,82 @@ Messages:
 
 Options:
   Permissions:
-    #Permissions to get information. If "none", it will be ignored.
+    #Permissions pour obtenir des informations. Si "none", il sera ignoré.
     Hive-info-permission: "none"
     Hive-item-info-permission: "none"
     Bee-info-permission: "none"
-    #Permission to access /betterbees (which includes "/betterbees reload" that reloads configuration however only messages are updated)
+    #Permission d'accéder à /betterbees (qui inclut "/betterbees reload" qui recharge la configuration, mais seulement les messages sont mis à jour)
     Admin-permission: "betterbees.admin"
   Hooks:
     WorldGuard:
-      #Hook WorldGuard if available. If false nothing related to WorldGuard will be checked.
-      #Disabled by default. No features requires this yet.
+      #Hook WorldGuard si disponible. Si "false", rien concernant WorldGuard ne sera vérifié.
+      #Désactivé par défaut. Aucune fonctionnalité pour le moment.
       Hook: false
     GriefPrevention:
-      #Hook GriefPrevention if available. If false nothing related to GriefPrevention will be checked.
+      #Hook GriefPrevention si disponible. Si "false", rien concernant GriefPrevention ne sera vérifié.
       Hook: true
-      #Prevent bees to be damaged on claims, except for players with permissions in it. This blocks ALL types of damage.
-      #Including EXPLOSION, FIRE, ETC! Only players attack will be allowed. Recommended if using plugins with custom enchants or effects
-      #like CrazyEnchantments or similar where bow enchantment creates explosion inside other players' claims.
-      #This SHOULD not be needed after GriefPrevention updates his plugin to 1.15
-      #### (NO LONGER NECESSARY SINCE 1.15.1)
+      #Empêchez les abeilles d'être endommagées sur les "claims", sauf pour les joueurs avec l'autorisations. Cela bloque TOUS les types de dommages.
+      #inclus les EXPLOSION, INCENDIE, ETC! Seules les attaques des joueurs seront autorisées. Recommandé si vous utilisez des plugins avec des enchantements ou des effets personnalisés
+      #Comme CrazyEnchantments ou similaire.
+      #Cela NE DEVRAIT pas être nécessaire après que GriefPrevention ait mis à jour son plugin à 1.15
+      #### (PLUS NÉCESSAIRE DEPUIS LA 1.15.1)
       Prevent-damage: true
-      #Prevent beehives and bee nests to be steal honey where player doesn't have permissions.
-      #This will not be needed after GriefPrevention updates his plugin to 1.15
-      #This might not be necessary with the latest GriefPrevention update. (NOT TESTED)
-      #### (NO LONGER NECESSARY SINCE 1.15.1)
+      #Empêchez les joueurs de voler les ruches et les nids d'abeilles quand il n'a pas les autorisations.
+      #Cela ne sera pas nécessaire après que GriefPrevention ait mis à jour son plugin en 1.15
+      #Cela peut ne pas être nécessaire avec la dernière mise à jour de GriefPrevention. (PAS TESTÉ)
+      #### (PLUS NÉCESSAIRE DEPUIS LA 1.15.1)
       Prevent-steal: false
     Lands:
-      #Hook Lands if available. If false nothing related to Lands will be checked.
+      #Hook Lands si disponible. Si "false", rien concernant les lands ne sera vérifié.
       Hook: true
   Bees:
     Path-to-hive:
-      #If enabled, it will show a line between bee and his hive location if available.
+      #Si activé, il affichera une ligne entre l'abeille et l'emplacement de la ruche (si disponible).
       Enabled: true
-      #Color for particles to hive. Color must be in Hex format. Do NOT include the #
+      #Couleur des particules pour la ruche. La couleur doit être au format hexadécimal. N'incluez PAS le #
       #You can use this https://www.google.com/search?q=color+pick
       Color: "ebdc13"
-      #Time in seconds the path to hive will be displayed. Default 2
+      #Temps en secondes, le chemin de la ruche sera affiché. (Par défaut 2)
       Time: 2
     Path-to-flower:
-      #If enabled, it will show a line between bee and his flower location if available.
+      #Si activé, il affichera une ligne entre l'abeille et l'emplacement de la fleur (si disponible).
       Enabled: true
-      #Color for particles to flower. Color must be in Hex format. Do NOT include the #
-      #You can use this https://www.google.com/search?q=color+pick
+      #Couleur des particules pour les fleurs. La couleur doit être au format hexadécimal. N'incluez PAS le #
+      #Vous pouvez utiliser ceci https://www.google.com/search?q=color+pick
       Color: "eb2113"
-      #Time in seconds the path to flower will be displayed. Default 2
+      #Temps en secondes, le chemin vers la fleur sera affiché. (Par défaut 2)
       Time: 2
   Lore:
     Enabled: true
     Message:
       - "&7Miel level: &6{HONEYLEVEL}&7/&65"
-      - "&7Abaille: &6{BEES}"
+      - "&7Abeille: &6{BEES}"
       - ""
       - "&9Généré par BetterBees."
-  #What does this option does?
-  #Enable auto names for Bees ;)
+  #Que fait cette option?
+  #Activer les noms automatiques pour les abeilless ;)
   Auto-name:
     Enabled: true
     Hooks:
       Global: true
       GriefPrevention: true
       Lands: true
-    #Format used if Global is enabled.
-    #Placeholders available:
-    # {BEENAME} - Replaced with the random name selected.
+    #Format utilisé si Global est activé.
+    #Placeholders Disponible:
+    # {BEENAME} - Remplacé par le nom aléatoire.
     Format-global: "&e{BEENAME}"
-    #Format used if bee spawns in a claimed land (GriefPrevention or Lands).
-    # {BEENAME} - Replaced with the random name selected.
+    #Format utilisé si l'abeille se reproduit dans une terre revendiquée (GriefPrevention ou Lands).
+    # {BEENAME} - Remplacé par le nom aléatoire.
     Format-owner:
-      #Available placeholders:
-      # {OWNER} - Replaced with the name of the owner of the claim IF available (Currently only with GriefPrevention).
-      GriefPrevention: "&e{BEENAME} &f- &6{OWNER}&e abaille"
-      #If land doesn't have a name defined.
+      #Placeholders Disponible:
+      # {OWNER} - Remplacé par le nom du propriétaire du claim SI disponible (Uniquement avec GriefPrevention).
+      GriefPrevention: "&e{BEENAME} &f- &6{OWNER}&e abeille"
+      #Si Lands n'a pas de nom défini.
       Lands: "&e{BEENAME}"
-      #Available placeholders:
-      # {LANDNAME} - Replaced with the name of the land IF available (Currently only with Lands).
+      #Placeholders Disponible:
+      # {LANDNAME} - Remplacé par le nom du terrain SI disponible (Uniquement avec Lands).
       Lands-name: "&e{BEENAME} &f- &6{LANDNAME}"
-    #List of names to choose from randomly. (You can also use color nodes here)
+    #Liste de noms à choisir au hasard. (Vous pouvez également utiliser des couleur)
     Available-names:
       - "Jennie"
       - "Michael"
@@ -133,14 +134,14 @@ Options:
       - "PandaBarbe"
 
 Updates:
-  #CAUTION: IF ENABLED, COMMENTS WILL BE DELETED.
+  #ATTENTION: SI ACTIVÉ, LES COMMENTAIRES SERONT SUPPRIMÉS.
   Auto-update-configuration: false
-  #Check updates? Recommended to leave this enabled!
+  #Vérifier les mises à jour. (Recommandé de laisser cela activé!)
   Check-updates: true
-  #Notify updates when a player joins the server?
+  #Notifier les mises à jour lorsqu'un joueur rejoint le serveur.
   Notify-updates: true
-  #Permission the player must have to be notified of new updates when joining the server.
-  #If none or null, only Operators will be notified.
+  #Permission le joueur sera averti des nouvelles mises à jour lors de sa connexion au serveur.
+  #Si "none" ou "nul", seuls les opérateurs seront notifiés.
   Permission: "betterbees.updatenotify"
-  #Message sent when update is found.
+  #Message envoyé lorsque la mise à jour est trouvée.
   Message: "&6[BetterBees] &eUne nouvelle mise à jour a été trouvée! Télécharge la ici &c{LINK}"
