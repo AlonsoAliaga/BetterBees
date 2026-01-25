@@ -1,8 +1,14 @@
 ![Logo](https://i.imgur.com/et06Wao.png)
 
 # BetterBees
-This plugin adds new "features" to the game for the 1.15 update were bees were added.\
-The aim of this plugin is to allow players know more about the hives they have or they hold in hands. Also provides information about bees when right clicking them.
+This plugin adds new "features" to the game for the 1.15 update were bees were added.
+
+The aim of this plugin is to allow players know more about the hives they have or they hold in hands.\
+It also provides information about bees when right clicking them.
+
+> [!WARNING]
+> This plugin supports only 1.15 and above!\
+> <sub>Since bees were added in that version.</sub>
 
 ## Resources
 - [Spigot resource](https://www.spigotmc.org/resources/74233/)
