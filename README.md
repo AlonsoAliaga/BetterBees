@@ -1,4 +1,4 @@
-![Logo](https://i.imgur.com/noz93vv.png)
+![Logo](https://i.imgur.com/et06Wao.png)
 
 # BetterBees
 This plugin adds new "features" to the game for the 1.15 update were bees were added.\
