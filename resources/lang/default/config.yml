@@ -1,9 +1,18 @@
+# Configuration for version 1.0-BETA
+
 #               ___      _   _           ___                              Our plugins: https://alonsoaliaga.com/plugins
 #              | _ ) ___| |_| |_ ___ _ _| _ ) ___ ___ ___                 Support server: https://alonsoaliaga.com/discord
 #              | _ \/ -_)  _|  _/ -_) '_| _ \/ -_) -_|_-<                 Youtube: https://alonsoaliaga.com/play
 #              |___/\___|\__|\__\___|_| |___/\___\___/__/                 Test server: plugins.alonsoaliaga.com
 #                           by AlonsoAliaga                               Twitch: https://alonsoaliaga.com/twitch
 #         Considering donating? https://alonsoaliaga.com/donate           Thanks for using my plugin! <3
+#  ======================================================================================================================================
+#  |              Downloaded this jar in a server setup? Tell the author he is NOT allowed to upload someone else work!                 |
+#  |   Update to latest version as soon as possible. Support WON'T be given when using old versions. Specially from downloaded setups.  |
+#  | Remember: Support is only provided for .jar files downloaded DIRECTLY from spigotmc.org! Other files will be considered as invalid |
+#  |        as they are NOT the same .jar file the developer (me) uploaded and I cannot guarantee that the file is safe or not.         |
+#  |                   If you have issues with setup configs. Tell the setup author to update his config file.                          |
+#  ======================================================================================================================================
 Messages:
   #Sent when right clicking a beehive or bee nest without items in hand.
   Hive-info:
@@ -36,15 +45,24 @@ Messages:
       - " &6/betterbees &f- &eShow this message."
       - " &6/betterbees reload&f- &eReload messages and some checks (doesn't include hooks)"
 
+Permissions:
+  #Permission to access beehive gui.
+  Beehive-gui: "none"
+  #Permissions to get information. If "none", it will be ignored.
+  Hive-info-permission: "none"
+  Hive-item-info-permission: "none"
+  Bee-info-permission: "none"
+  #Permission to access /betterbees (which includes "/betterbees reloadMessages" that reloads configuration however only messages are updated)
+  Admin-permission: "betterbees.admin"
+
 Options:
   Debug-mode: false
-  Permissions:
-    #Permissions to get information. If "none", it will be ignored.
-    Hive-info-permission: "none"
-    Hive-item-info-permission: "none"
-    Bee-info-permission: "none"
-    #Permission to access /betterbees (which includes "/betterbees reload" that reloads configuration however only messages are updated)
-    Admin-permission: "betterbees.admin"
+  #To apply changes for aliases you must RESTART the server.
+  #Plugman or similar plugins are NOT and will NEVER be supported.
+  #Use /reloadMessages or restart your server.
+  Aliases:
+  - "bbees"
+  - "betterbee"
   Hooks:
     WorldGuard:
       #Hook WorldGuard if available. If false nothing related to WorldGuard will be checked.
@@ -99,10 +117,16 @@ Options:
   #Enable auto names for Bees ;)
   Auto-name:
     Enabled: true
+    Force-random-always:
+      On-release: false
+      On-hive-leave: false
     Hooks:
       Global: true
       GriefPrevention: true
       Lands: true
+      Bento-box: true
+      Iridium-skyblock: true
+      Superior-skyblock: true
     #Format used if Global is enabled.
     #Placeholders available:
     # {BEENAME} - Replaced with the random name selected.
@@ -118,10 +142,32 @@ Options:
       #Available placeholders:
       # {LANDNAME} - Replaced with the name of the land IF available (Currently only with Lands).
       Lands-name: "&e{BEENAME} &f- &6{LANDNAME}"
+      Bento-box:
+        #Available placeholders: {ISLAND_NAME} - Replaced with the name of the island IF available.
+        Island-name: "&e{BEENAME}&f - &6{ISLAND_NAME}&e's bee"
+        #Available placeholders: {ISLAND_OWNER} - Replaced with the name of the island owner IF available.
+        Island-owner: "&e{BEENAME}&f - &6{ISLAND_OWNER}&e's bee"
+      Iridium-skyblock:
+        #Available placeholders: {ISLAND_OWNER} - Replaced with the name of the island owner IF available.
+        Island-owner: "&e{BEENAME}&f - &6{ISLAND_OWNER}&e's bee"
+      Superior-skyblock:
+        #Available placeholders: {ISLAND_OWNER} - Replaced with the name of the island owner IF available.
+        Island-owner: "&e{BEENAME}&f - &6{ISLAND_OWNER}&e's bee"
     #List of names to choose from randomly. (You can also use color nodes here)
     Available-names:
-      - "Jennie"
+      - "Taylor"
+      - "Ellie"
+      - "Albert"
       - "Michael"
+      - "Oliver"
+      - "Daisy"
+      - "Isabel"
+      - "Flavia"
+      - "Jandira"
+      - "Alonso"
+      - "Yazmin"
+      - "Onyx"
+      - "Jennie"
       - "Sunflower"
       - "Mike"
       - "Peter"
@@ -130,12 +176,70 @@ Options:
       - "Bumble"
       - "Pollen"
       - "Beeny"
-      - "Taylor"
-      - "Daisy"
-      - "Alonso"
       - "Mary"
       - "Tony"
+      - "Winnie"
       - "&d&lQueen"
+      - "Buzz"
+      - "Nectar"
+      - "Amber"
+      - "Willow"
+      - "Flora"
+      - "Goldie"
+      - "Starlight"
+      - "Sunny"
+      - "Nova"
+      - "Blossom"
+      - "Zenith"
+      - "Aura"
+      - "Clover"
+      - "Pip"
+      - "Fable"
+      - "Petal"
+      - "Zest"
+      - "Breezy"
+      - "Luna"
+  Beehive-gui:
+    Title: "&e&lHoney: &6{HONEYLEVEL}&7/&f{MAXHONEYLEVEL} &e&lBees: &6{BEES}&7/&f3"
+    #Available types: CONTAINER (This is 4 rows) and DROPPER (this is the usual 3x3)
+    Type: CONTAINER
+    #If type is CONTAINER, how many rows? Min 3, max 6.
+    Rows: 4
+    #Used only if type is "CONTAINER". Slots must be 8 available slots for the amount of rows selected.
+    Slots: "3,4,5,12,14,21,22,23"
+    Release:
+      #Slot: 4 #If type is DROPPER
+      Slot: 13
+      Items:
+        - "material=CUSTOM_HEAD|texture=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWZkZTNiZmNlMmQ4Y2I3MjRkZTg1NTZlNWVjMjFiN2YxNWY1ODQ2ODRhYjc4NTIxNGFkZDE2NGJlNzYyNGIifX19"
+      Displayname: "&c&lRelease bees"
+      Lore: []
+    Bees:
+      Items:
+        #Normal
+        - "material=CUSTOM_HEAD|texture=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDAyOTlhMmFhZTlhNjA1YjVkYmQxOTQ1ZmM0MzY4Y2NlZTg4YWUwNmU0N2RjOTBmOTUzMTMxZTBkOTAzYjMyMiJ9fX0=|item-model-data=0"
+        - "material=CUSTOM_HEAD|texture=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDAyOTlhMmFhZTlhNjA1YjVkYmQxOTQ1ZmM0MzY4Y2NlZTg4YWUwNmU0N2RjOTBmOTUzMTMxZTBkOTAzYjMyMiJ9fX0=|item-model-data=0"
+        - "material=CUSTOM_HEAD|texture=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDAyOTlhMmFhZTlhNjA1YjVkYmQxOTQ1ZmM0MzY4Y2NlZTg4YWUwNmU0N2RjOTBmOTUzMTMxZTBkOTAzYjMyMiJ9fX0=|item-model-data=0"
+        - "material=CUSTOM_HEAD|texture=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDAyOTlhMmFhZTlhNjA1YjVkYmQxOTQ1ZmM0MzY4Y2NlZTg4YWUwNmU0N2RjOTBmOTUzMTMxZTBkOTAzYjMyMiJ9fX0=|item-model-data=0"
+        - "material=CUSTOM_HEAD|texture=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDAyOTlhMmFhZTlhNjA1YjVkYmQxOTQ1ZmM0MzY4Y2NlZTg4YWUwNmU0N2RjOTBmOTUzMTMxZTBkOTAzYjMyMiJ9fX0=|item-model-data=0"
+        - "material=CUSTOM_HEAD|texture=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDAyOTlhMmFhZTlhNjA1YjVkYmQxOTQ1ZmM0MzY4Y2NlZTg4YWUwNmU0N2RjOTBmOTUzMTMxZTBkOTAzYjMyMiJ9fX0=|item-model-data=0"
+        - "material=CUSTOM_HEAD|texture=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDAyOTlhMmFhZTlhNjA1YjVkYmQxOTQ1ZmM0MzY4Y2NlZTg4YWUwNmU0N2RjOTBmOTUzMTMxZTBkOTAzYjMyMiJ9fX0=|item-model-data=0"
+        - "material=CUSTOM_HEAD|texture=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDAyOTlhMmFhZTlhNjA1YjVkYmQxOTQ1ZmM0MzY4Y2NlZTg4YWUwNmU0N2RjOTBmOTUzMTMxZTBkOTAzYjMyMiJ9fX0=|item-model-data=0"
+        - "material=CUSTOM_HEAD|texture=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDAyOTlhMmFhZTlhNjA1YjVkYmQxOTQ1ZmM0MzY4Y2NlZTg4YWUwNmU0N2RjOTBmOTUzMTMxZTBkOTAzYjMyMiJ9fX0=|item-model-data=0"
+        #Angry
+        - "material=CUSTOM_HEAD|texture=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDg5MTZlYTFmZmIzOWYxM2RiYmY0ZTYyNDQ5ZGQyY2JkNWQyODEyZjQxNGU5NzYwOGFmMDYwOWUxMzlkNjExNSJ9fX0=|item-model-data=0"
+        #Queen
+        - "material=CUSTOM_HEAD|texture=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjUwYThlYWVmYmJlYWUyZTY2ZDVhMGIzNDIwMDExMTg2NWM3MTVlYjYyOWJlOTUxYzFlMWNlNDJkZWY5YTg1MCJ9fX0=|item-model-data=0"
+      Displayname: "&e&lBee"
+      Lore:
+        - "&7This bee is inside."
+    Honey:
+      Items:
+        - "material=CUSTOM_HEAD|texture=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGE3ZTBkNTVlYTgwNTE1Njk5NTVkYTEzODY5NzE3NGEwYmQ3NjE5MGIyZDU4Yjk5NzUwOTczN2RjZTVmYjYxZiJ9fX0=|item-model-data=0"
+        - "material=CUSTOM_HEAD|texture=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWI3YjE0ZjNjNzg3ODVjMWZkMjQ0MjU1ZTA1ZDUzN2Q2YzU1MTIwNzI2MmE2MGMzODEyNWMwMWY2NjNhMDc1ZSJ9fX0=|item-model-data=0"
+        - "material=CUSTOM_HEAD|texture=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjhjNDdlODM5YTljYTZmNjc1OWM2YTYzNzljMzMwNzRkM2Q5ZjhjNjY3OWMxN2RhYTYyYWYxMjE5YmM1Y2Q5ZiJ9fX0=|item-model-data=0"
+      Displayname: "&6&lHoney"
+      Lore: []
 
 Updates:
   #CAUTION: IF ENABLED, COMMENTS WILL BE DELETED.
